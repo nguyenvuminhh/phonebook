@@ -18,10 +18,10 @@ jobs:
           node-version: 20
       
       - name: install deps
-        runs: npm install-all
+        run: npm install-all
 
       - name: linting
-        runs: npm run lint
+        run: npm run lint
 
       - name: testing
-        runs: npm run test:back
+        run: npm run test:back
