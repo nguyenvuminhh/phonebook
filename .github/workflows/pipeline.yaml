@@ -12,8 +12,8 @@ jobs:
   linting-and-testing:
     runs-on: ubuntu-20.04
     steps:
-      - uses: action/checkout@v4
-      - uses: action/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
       
