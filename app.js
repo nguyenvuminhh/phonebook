@@ -12,19 +12,19 @@ mongoose.set('strictQuery', false)
 
 let url
 switch (process.env.NODE_ENV) {
-  case 'prod': 
-    url = process.env.URI_PROD
-    break
-  case 'dev': 
-    url = process.env.URI_DEV
-    break
-  default:
-    url = process.env.URI_TEST
-    break
+case 'test':
+  url = process.env.URI_TEST
+  break
+case 'dev':
+  url = process.env.URI_DEV
+  break
+default:
+  url = process.env.URI_PROD
+  break
 }
 
 mongoose.connect(url).then(() =>
-    console.log('connected')
+  console.log('connected')
 ).catch((e) => console.log(e.message))
 
 
@@ -34,8 +34,8 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :r
 app.use(cors())
 app.use(router)
 
-const unknownEndpoint = (_res, _req) => {
-  response.status(404).send({ error: 'unknown endpoint' })
+const unknownEndpoint = (res, _req) => {
+  res.status(404).send({ error: 'unknown endpoint' })
 }
 app.use(unknownEndpoint)
 

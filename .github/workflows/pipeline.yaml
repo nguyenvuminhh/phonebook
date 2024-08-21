@@ -1,0 +1,27 @@
+name: pipeline
+
+on:
+  push:
+    branches: 
+      - main
+  pull-request:
+    brances: [main]
+    types: [opened, synchronize]
+
+jobs:
+  linting-and-testing:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: action/checkout@v4
+      - uses: action/setup-node@v4
+        with:
+          node-version: 20
+      
+      - name: install deps
+        runs: npm install-all
+
+      - name: linting
+        runs: npm run lint
+
+      - name: testing
+        runs: npm run test:back

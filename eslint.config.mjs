@@ -4,7 +4,23 @@ import js from '@eslint/js'
 
 export default [
   {
+    ignores: [
+      'frontend/',
+      'node_modules/',   
+      'dist/',           
+      '*.env',
+    ],
+  },
+  {
     rules: {
+      'no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',   // Ignore arguments starting with _
+          varsIgnorePattern: '^_',   // Ignore variables starting with _
+          caughtErrorsIgnorePattern: '^_', // Ignore caught errors starting with _
+        },
+      ],
       "linebreak-style": "off",
     }
   },
