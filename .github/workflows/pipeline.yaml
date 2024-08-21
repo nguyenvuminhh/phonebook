@@ -20,11 +20,15 @@ jobs:
       - name: install deps
         run: npm run install-all
 
-      - name: Check ESLint permissions
-        run: chmod +x node_modules/.bin/eslint || true
-        
+      - name: Check ESLint and cross-env permissions
+        run: |
+          chmod +x node_modules/.bin/eslint || true
+          chmod +x node_modules/.bin/cross-env || true
+
       - name: linting
         run: npm run lint
 
       - name: testing
         run: npm run test:back
+        env:
+          URI_TEST: ${{secrets.URI_TEST}}
