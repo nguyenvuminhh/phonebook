@@ -18,7 +18,7 @@ switch (process.env.NODE_ENV) {
   case 'dev': 
     url = process.env.URI_DEV
     break
-  case 'test': 
+  default:
     url = process.env.URI_TEST
     break
 }
