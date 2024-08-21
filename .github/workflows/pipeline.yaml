@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: [deploy]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4 
       - if: ${{github.event_name == 'push' && !contains(toJson(github.event.commits.*.message), '#none')}}
         uses: anothrNick/github-tag-action@1.64.0
         env: 
