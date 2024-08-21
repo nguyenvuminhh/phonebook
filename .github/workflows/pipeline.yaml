@@ -5,7 +5,7 @@ on:
     branches: 
       - main
   pull_request:
-    brances: [main]
+    branches: [main]
     types: [opened, synchronize]
 
 jobs:
@@ -20,6 +20,9 @@ jobs:
       - name: install deps
         run: npm run install-all
 
+      - name: Check ESLint permissions
+        run: chmod +x node_modules/.bin/eslint || true
+        
       - name: linting
         run: npm run lint
 
