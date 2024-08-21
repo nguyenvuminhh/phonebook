@@ -51,8 +51,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     
   notification-via-discord:
-    notify-via-discord:
-    needs: [release-tag]
+    needs: [add-release-tag]
     runs-on: ubuntu-20.04
     steps:      
       - name: Test Success
